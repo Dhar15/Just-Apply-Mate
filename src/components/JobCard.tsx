@@ -69,7 +69,9 @@ const JobCard: React.FC<Props> = ({ job, onDelete, onEdit }) => {
           {job.status}
         </div>
 
-        {job.status_link && (
+        {job.status_link && 
+        job.status != 'Rejected' &&
+         (
           <a
             href={job.status_link}
             target="_blank"

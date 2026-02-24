@@ -87,7 +87,8 @@ export default function JobStatsPage() {
   const rejected = statusCounts['Rejected'] || 0;
   const interviews = statusCounts['Interview'] || 0;
 
-  const responseRate = applied ? (((interviews + offers) / applied) * 100).toFixed(1) : '0';
+  const gotResponse = interviews + offers + rejected;
+  const responseRate = applied ? ((gotResponse / applied) * 100).toFixed(1) : '0';
   const conversionRate = applied ? ((offers / applied) * 100).toFixed(1) : '0';
   const rejectionRate = applied ? ((rejected / applied) * 100).toFixed(1) : '0';
 
