@@ -82,6 +82,8 @@ export default function EditJobPage() {
           applied_on: job.applied_on || null,
           notes: job.notes || null,
           deadline: job.deadline || null,
+          had_interview: job.had_interview,  
+          had_offer: job.had_offer,          
         })
         .eq('id', job.id);
 

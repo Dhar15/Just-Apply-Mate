@@ -36,6 +36,8 @@ export default function AddJobPage() {
       applied_on: appliedOn || null,
       portal: portal || null,
       notes: notes || null,
+      had_interview: status === 'Interview' || status === 'Offer' || status === 'Rejected',  
+      had_offer: status === 'Offer',  
       created_at: new Date().toISOString(),
     };
 

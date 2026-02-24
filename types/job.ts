@@ -1,6 +1,4 @@
 export interface Job {
-  had_interview: boolean;
-  had_offer: boolean;
   id: string;
   title: string;
   company: string;
@@ -10,4 +8,6 @@ export interface Job {
   status_link?: string;
   notes?: string;
   deadline?: string;
+  had_interview?: boolean;
+  had_offer?: boolean;
 }
