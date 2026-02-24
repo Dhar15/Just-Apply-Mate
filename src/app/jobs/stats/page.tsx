@@ -87,7 +87,15 @@ export default function JobStatsPage() {
   const rejected = statusCounts['Rejected'] || 0;
   const interviews = statusCounts['Interview'] || 0;
 
-  const gotResponse = interviews + offers + rejected;
+  const hadInterview = jobs.filter(job => 
+    job.had_interview || job.status === 'Interview'
+  ).length;
+
+  const hadOffer = jobs.filter(job => 
+    job.had_offer || job.status === 'Offer'  
+  ).length;
+
+  const gotResponse = hadInterview + hadOffer;
   const responseRate = applied ? ((gotResponse / applied) * 100).toFixed(1) : '0';
   const conversionRate = applied ? ((offers / applied) * 100).toFixed(1) : '0';
   const rejectionRate = applied ? ((rejected / applied) * 100).toFixed(1) : '0';
@@ -166,9 +174,17 @@ export default function JobStatsPage() {
               <p className="text-gray-600 text-sm">Applications</p>
               <p className="text-3xl font-bold text-gray-600">{applied}</p>
             </div>
-            <div>
-              <p className="text-gray-600 text-sm">Response Rate</p>
+            <div className="group relative">
+              <p className="text-gray-600 text-sm flex items-center justify-center gap-1">
+                Response Rate
+                <span className="text-blue-500 cursor-help text-sm" title="Positive responses only">ℹ️</span>
+              </p>
               <p className="text-3xl font-bold text-blue-600">{responseRate}%</p>
+              <div className="invisible group-hover:visible absolute left-1/2 -translate-x-1/2 top-full mt-2 w-64 p-3 bg-gray-800 text-white text-xs rounded-lg shadow-lg z-10">
+                <div className="font-semibold mb-1">Response Rate:</div>
+                <div>Percentage of applications that resulted in interviews or offers (currently in Interview/Offer status). Rejections are tracked separately.</div>
+                <div className="absolute -top-1 left-1/2 -translate-x-1/2 w-2 h-2 bg-gray-800 transform rotate-45"></div>
+              </div>
             </div>
             <div>
               <p className="text-gray-600 text-sm">Conversion</p>

@@ -1,4 +1,6 @@
 export interface Job {
+  had_interview: boolean;
+  had_offer: boolean;
   id: string;
   title: string;
   company: string;
