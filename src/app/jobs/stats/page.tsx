@@ -175,14 +175,11 @@ export default function JobStatsPage() {
               <p className="text-3xl font-bold text-gray-600">{applied}</p>
             </div>
             <div className="group relative">
-              <p className="text-gray-600 text-sm flex items-center justify-center gap-1">
-                Response Rate
-                <span className="text-blue-500 cursor-help text-sm" title="Positive responses only">ℹ️</span>
-              </p>
+              <p className="text-gray-600 text-sm flex items-center justify-center gap-1">Response Rate</p>
               <p className="text-3xl font-bold text-blue-600">{responseRate}%</p>
               <div className="invisible group-hover:visible absolute left-1/2 -translate-x-1/2 top-full mt-2 w-64 p-3 bg-gray-800 text-white text-xs rounded-lg shadow-lg z-10">
                 <div className="font-semibold mb-1">Response Rate:</div>
-                <div>Percentage of applications that resulted in interviews or offers (currently in Interview/Offer status). Rejections are tracked separately.</div>
+                <div>Percentage of applications that ever resulted in interviews or offers. Rejections are tracked separately.</div>
                 <div className="absolute -top-1 left-1/2 -translate-x-1/2 w-2 h-2 bg-gray-800 transform rotate-45"></div>
               </div>
             </div>
@@ -319,7 +316,7 @@ export default function JobStatsPage() {
         <div className="bg-blue-50 border border-blue-200 rounded-xl p-6 text-center">
           <h2 className="text-xl font-semibold text-blue-700 mb-2">📈 Pro Insight</h2>
           <p className="text-gray-700">
-            You&apos;ve applied to <strong>{applied}</strong> job(s), scored <strong>{interviews}</strong> interview(s), and landed <strong>{offers}</strong> offer(s). Keep tracking your progress!
+            You&apos;ve applied to <strong>{applied}</strong> job(s), scored <strong>{hadInterview}</strong> interview(s), and landed <strong>{offers}</strong> offer(s). Keep tracking your progress!
           </p>
         </div>
       </div>
