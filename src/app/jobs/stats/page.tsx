@@ -85,7 +85,6 @@ export default function JobStatsPage() {
   const applied = jobs.filter((job) => appliedStatuses.includes(job.status)).length;
   const offers = statusCounts['Offer'] || 0;
   const rejected = statusCounts['Rejected'] || 0;
-  const interviews = statusCounts['Interview'] || 0;
 
   const hadInterview = jobs.filter(job => 
     job.had_interview || job.status === 'Interview'
